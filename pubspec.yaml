@@ -17,6 +17,7 @@ dependencies:
   flutter_code_editor: ^0.1.13
   widgets_to_image: ^0.0.2
   http: ^0.13.5
+  resizable_widget: ^1.0.5
 
 dev_dependencies:
   flutter_test:
