@@ -8,7 +8,26 @@ import 'package:widgets_to_image/widgets_to_image.dart';
 import '../../constants/colors.dart';
 
 class CodeEditorPage extends ConsumerWidget {
-  const CodeEditorPage({super.key});
+  CodeEditorPage({super.key});
+
+  final themes = [
+    const LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        Color(0xFFBE3E95),
+        Color(0xFF643FE2),
+      ],
+    ),
+    const LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [
+        Color(0xFF8CE7CC),
+        Color(0xFF6355E8),
+      ],
+    ),
+  ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,7 +38,9 @@ class CodeEditorPage extends ConsumerWidget {
         title: const Text("Codeshot"),
         backgroundColor: darkGrey,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.change_circle)),
+          IconButton(
+              onPressed: () => controller.nextTheme(themes.length),
+              icon: const Icon(Icons.change_circle)),
           IconButton(
             onPressed: controller.launchCodeShotGitHubRepository,
             icon: const Icon(FontAwesomeIcons.github),
@@ -53,14 +74,7 @@ class CodeEditorPage extends ConsumerWidget {
                   width: state.currentWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Color(0xFF8CE7CC),
-                        Color(0xFF6355E8),
-                      ],
-                    ),
+                    gradient: themes[state.themeIndex],
                   ),
                   child: Align(
                     alignment: Alignment.center,

@@ -23,6 +23,7 @@ mixin _$CodeEditorModel {
   CodeController get codeController => throw _privateConstructorUsedError;
   WidgetsToImageController get widgetsToImageController =>
       throw _privateConstructorUsedError;
+  int get themeIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CodeEditorModelCopyWith<CodeEditorModel> get copyWith =>
@@ -41,7 +42,8 @@ abstract class $CodeEditorModelCopyWith<$Res> {
       double currentHeight,
       double defaultHeight,
       CodeController codeController,
-      WidgetsToImageController widgetsToImageController});
+      WidgetsToImageController widgetsToImageController,
+      int themeIndex});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$CodeEditorModelCopyWithImpl<$Res, $Val extends CodeEditorModel>
     Object? defaultHeight = null,
     Object? codeController = null,
     Object? widgetsToImageController = null,
+    Object? themeIndex = null,
   }) {
     return _then(_value.copyWith(
       currentWidth: null == currentWidth
@@ -89,6 +92,10 @@ class _$CodeEditorModelCopyWithImpl<$Res, $Val extends CodeEditorModel>
           ? _value.widgetsToImageController
           : widgetsToImageController // ignore: cast_nullable_to_non_nullable
               as WidgetsToImageController,
+      themeIndex: null == themeIndex
+          ? _value.themeIndex
+          : themeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -107,7 +114,8 @@ abstract class _$$_CodeEditorModelCopyWith<$Res>
       double currentHeight,
       double defaultHeight,
       CodeController codeController,
-      WidgetsToImageController widgetsToImageController});
+      WidgetsToImageController widgetsToImageController,
+      int themeIndex});
 }
 
 /// @nodoc
@@ -127,6 +135,7 @@ class __$$_CodeEditorModelCopyWithImpl<$Res>
     Object? defaultHeight = null,
     Object? codeController = null,
     Object? widgetsToImageController = null,
+    Object? themeIndex = null,
   }) {
     return _then(_$_CodeEditorModel(
       currentWidth: null == currentWidth
@@ -153,6 +162,10 @@ class __$$_CodeEditorModelCopyWithImpl<$Res>
           ? _value.widgetsToImageController
           : widgetsToImageController // ignore: cast_nullable_to_non_nullable
               as WidgetsToImageController,
+      themeIndex: null == themeIndex
+          ? _value.themeIndex
+          : themeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -168,7 +181,8 @@ class _$_CodeEditorModel
       required this.currentHeight,
       required this.defaultHeight,
       required this.codeController,
-      required this.widgetsToImageController});
+      required this.widgetsToImageController,
+      required this.themeIndex});
 
   @override
   final double currentWidth;
@@ -182,10 +196,12 @@ class _$_CodeEditorModel
   final CodeController codeController;
   @override
   final WidgetsToImageController widgetsToImageController;
+  @override
+  final int themeIndex;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CodeEditorModel(currentWidth: $currentWidth, defaultWidth: $defaultWidth, currentHeight: $currentHeight, defaultHeight: $defaultHeight, codeController: $codeController, widgetsToImageController: $widgetsToImageController)';
+    return 'CodeEditorModel(currentWidth: $currentWidth, defaultWidth: $defaultWidth, currentHeight: $currentHeight, defaultHeight: $defaultHeight, codeController: $codeController, widgetsToImageController: $widgetsToImageController, themeIndex: $themeIndex)';
   }
 
   @override
@@ -199,7 +215,8 @@ class _$_CodeEditorModel
       ..add(DiagnosticsProperty('defaultHeight', defaultHeight))
       ..add(DiagnosticsProperty('codeController', codeController))
       ..add(DiagnosticsProperty(
-          'widgetsToImageController', widgetsToImageController));
+          'widgetsToImageController', widgetsToImageController))
+      ..add(DiagnosticsProperty('themeIndex', themeIndex));
   }
 
   @override
@@ -219,12 +236,21 @@ class _$_CodeEditorModel
                 other.codeController == codeController) &&
             (identical(
                     other.widgetsToImageController, widgetsToImageController) ||
-                other.widgetsToImageController == widgetsToImageController));
+                other.widgetsToImageController == widgetsToImageController) &&
+            (identical(other.themeIndex, themeIndex) ||
+                other.themeIndex == themeIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentWidth, defaultWidth,
-      currentHeight, defaultHeight, codeController, widgetsToImageController);
+  int get hashCode => Object.hash(
+      runtimeType,
+      currentWidth,
+      defaultWidth,
+      currentHeight,
+      defaultHeight,
+      codeController,
+      widgetsToImageController,
+      themeIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -235,13 +261,13 @@ class _$_CodeEditorModel
 
 abstract class _CodeEditorModel implements CodeEditorModel {
   const factory _CodeEditorModel(
-          {required final double currentWidth,
-          required final double defaultWidth,
-          required final double currentHeight,
-          required final double defaultHeight,
-          required final CodeController codeController,
-          required final WidgetsToImageController widgetsToImageController}) =
-      _$_CodeEditorModel;
+      {required final double currentWidth,
+      required final double defaultWidth,
+      required final double currentHeight,
+      required final double defaultHeight,
+      required final CodeController codeController,
+      required final WidgetsToImageController widgetsToImageController,
+      required final int themeIndex}) = _$_CodeEditorModel;
 
   @override
   double get currentWidth;
@@ -255,6 +281,8 @@ abstract class _CodeEditorModel implements CodeEditorModel {
   CodeController get codeController;
   @override
   WidgetsToImageController get widgetsToImageController;
+  @override
+  int get themeIndex;
   @override
   @JsonKey(ignore: true)
   _$$_CodeEditorModelCopyWith<_$_CodeEditorModel> get copyWith =>
