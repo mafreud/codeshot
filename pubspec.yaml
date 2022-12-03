@@ -20,6 +20,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   http: ^0.13.5
   resizable_widget: ^1.0.5
+  url_launcher: ^6.1.7
   widgets_to_image: ^0.0.2
 
 dev_dependencies:

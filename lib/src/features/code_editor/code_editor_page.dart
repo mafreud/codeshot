@@ -21,7 +21,7 @@ class CodeEditorPage extends ConsumerWidget {
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.change_circle)),
           IconButton(
-            onPressed: () {},
+            onPressed: controller.launchCodeShotGitHubRepository,
             icon: const Icon(FontAwesomeIcons.github),
           ),
         ],
