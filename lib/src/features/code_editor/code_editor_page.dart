@@ -1,3 +1,4 @@
+import 'package:codeshot/src/features/code_editor/background_themes.dart';
 import 'package:codeshot/src/features/code_editor/code_editor_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
@@ -8,74 +9,7 @@ import 'package:widgets_to_image/widgets_to_image.dart';
 import '../../constants/colors.dart';
 
 class CodeEditorPage extends ConsumerWidget {
-  CodeEditorPage({super.key});
-
-  final themes = [
-    const LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Color(0xFFBE3E95),
-        Color(0xFF643FE2),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.topRight,
-      end: Alignment.bottomLeft,
-      colors: [
-        Color(0xFF8CE7CC),
-        Color(0xFF6355E8),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF396afc),
-        Color(0xFF2948ff),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [
-        Color(0xFF1c92d2),
-        Color(0xFFf2fcfe),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [
-        Color(0xFF0f9b0f),
-        Color(0xFF000000),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [
-        Color(0xFFc0392b),
-        Color(0xFF8e44ad),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [
-        Color(0xFF159957),
-        Color(0xFF155799),
-      ],
-    ),
-    const LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [
-        Color(0xFF000046),
-        Color(0xFF1CB5E0),
-      ],
-    ),
-  ];
+  const CodeEditorPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -87,7 +21,7 @@ class CodeEditorPage extends ConsumerWidget {
         backgroundColor: darkGrey,
         actions: [
           IconButton(
-              onPressed: () => controller.nextTheme(themes.length),
+              onPressed: () => controller.nextTheme(backgroundThemes.length),
               icon: const Icon(Icons.change_circle)),
           IconButton(
             onPressed: controller.launchCodeShotGitHubRepository,
@@ -122,7 +56,7 @@ class CodeEditorPage extends ConsumerWidget {
                   width: state.currentWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    gradient: themes[state.themeIndex],
+                    gradient: backgroundThemes[state.themeIndex],
                   ),
                   child: Align(
                     alignment: Alignment.center,
