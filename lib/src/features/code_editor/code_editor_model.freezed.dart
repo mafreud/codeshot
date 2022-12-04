@@ -23,7 +23,8 @@ mixin _$CodeEditorModel {
   CodeController get codeController => throw _privateConstructorUsedError;
   WidgetsToImageController get widgetsToImageController =>
       throw _privateConstructorUsedError;
-  int get themeIndex => throw _privateConstructorUsedError;
+  int get backgroundThemeIndex => throw _privateConstructorUsedError;
+  int get codeEditorThemeIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CodeEditorModelCopyWith<CodeEditorModel> get copyWith =>
@@ -43,7 +44,8 @@ abstract class $CodeEditorModelCopyWith<$Res> {
       double defaultHeight,
       CodeController codeController,
       WidgetsToImageController widgetsToImageController,
-      int themeIndex});
+      int backgroundThemeIndex,
+      int codeEditorThemeIndex});
 }
 
 /// @nodoc
@@ -65,7 +67,8 @@ class _$CodeEditorModelCopyWithImpl<$Res, $Val extends CodeEditorModel>
     Object? defaultHeight = null,
     Object? codeController = null,
     Object? widgetsToImageController = null,
-    Object? themeIndex = null,
+    Object? backgroundThemeIndex = null,
+    Object? codeEditorThemeIndex = null,
   }) {
     return _then(_value.copyWith(
       currentWidth: null == currentWidth
@@ -92,9 +95,13 @@ class _$CodeEditorModelCopyWithImpl<$Res, $Val extends CodeEditorModel>
           ? _value.widgetsToImageController
           : widgetsToImageController // ignore: cast_nullable_to_non_nullable
               as WidgetsToImageController,
-      themeIndex: null == themeIndex
-          ? _value.themeIndex
-          : themeIndex // ignore: cast_nullable_to_non_nullable
+      backgroundThemeIndex: null == backgroundThemeIndex
+          ? _value.backgroundThemeIndex
+          : backgroundThemeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      codeEditorThemeIndex: null == codeEditorThemeIndex
+          ? _value.codeEditorThemeIndex
+          : codeEditorThemeIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -115,7 +122,8 @@ abstract class _$$_CodeEditorModelCopyWith<$Res>
       double defaultHeight,
       CodeController codeController,
       WidgetsToImageController widgetsToImageController,
-      int themeIndex});
+      int backgroundThemeIndex,
+      int codeEditorThemeIndex});
 }
 
 /// @nodoc
@@ -135,7 +143,8 @@ class __$$_CodeEditorModelCopyWithImpl<$Res>
     Object? defaultHeight = null,
     Object? codeController = null,
     Object? widgetsToImageController = null,
-    Object? themeIndex = null,
+    Object? backgroundThemeIndex = null,
+    Object? codeEditorThemeIndex = null,
   }) {
     return _then(_$_CodeEditorModel(
       currentWidth: null == currentWidth
@@ -162,9 +171,13 @@ class __$$_CodeEditorModelCopyWithImpl<$Res>
           ? _value.widgetsToImageController
           : widgetsToImageController // ignore: cast_nullable_to_non_nullable
               as WidgetsToImageController,
-      themeIndex: null == themeIndex
-          ? _value.themeIndex
-          : themeIndex // ignore: cast_nullable_to_non_nullable
+      backgroundThemeIndex: null == backgroundThemeIndex
+          ? _value.backgroundThemeIndex
+          : backgroundThemeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      codeEditorThemeIndex: null == codeEditorThemeIndex
+          ? _value.codeEditorThemeIndex
+          : codeEditorThemeIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -182,7 +195,8 @@ class _$_CodeEditorModel
       required this.defaultHeight,
       required this.codeController,
       required this.widgetsToImageController,
-      required this.themeIndex});
+      required this.backgroundThemeIndex,
+      required this.codeEditorThemeIndex});
 
   @override
   final double currentWidth;
@@ -197,11 +211,13 @@ class _$_CodeEditorModel
   @override
   final WidgetsToImageController widgetsToImageController;
   @override
-  final int themeIndex;
+  final int backgroundThemeIndex;
+  @override
+  final int codeEditorThemeIndex;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CodeEditorModel(currentWidth: $currentWidth, defaultWidth: $defaultWidth, currentHeight: $currentHeight, defaultHeight: $defaultHeight, codeController: $codeController, widgetsToImageController: $widgetsToImageController, themeIndex: $themeIndex)';
+    return 'CodeEditorModel(currentWidth: $currentWidth, defaultWidth: $defaultWidth, currentHeight: $currentHeight, defaultHeight: $defaultHeight, codeController: $codeController, widgetsToImageController: $widgetsToImageController, backgroundThemeIndex: $backgroundThemeIndex, codeEditorThemeIndex: $codeEditorThemeIndex)';
   }
 
   @override
@@ -216,7 +232,8 @@ class _$_CodeEditorModel
       ..add(DiagnosticsProperty('codeController', codeController))
       ..add(DiagnosticsProperty(
           'widgetsToImageController', widgetsToImageController))
-      ..add(DiagnosticsProperty('themeIndex', themeIndex));
+      ..add(DiagnosticsProperty('backgroundThemeIndex', backgroundThemeIndex))
+      ..add(DiagnosticsProperty('codeEditorThemeIndex', codeEditorThemeIndex));
   }
 
   @override
@@ -237,8 +254,10 @@ class _$_CodeEditorModel
             (identical(
                     other.widgetsToImageController, widgetsToImageController) ||
                 other.widgetsToImageController == widgetsToImageController) &&
-            (identical(other.themeIndex, themeIndex) ||
-                other.themeIndex == themeIndex));
+            (identical(other.backgroundThemeIndex, backgroundThemeIndex) ||
+                other.backgroundThemeIndex == backgroundThemeIndex) &&
+            (identical(other.codeEditorThemeIndex, codeEditorThemeIndex) ||
+                other.codeEditorThemeIndex == codeEditorThemeIndex));
   }
 
   @override
@@ -250,7 +269,8 @@ class _$_CodeEditorModel
       defaultHeight,
       codeController,
       widgetsToImageController,
-      themeIndex);
+      backgroundThemeIndex,
+      codeEditorThemeIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -267,7 +287,8 @@ abstract class _CodeEditorModel implements CodeEditorModel {
       required final double defaultHeight,
       required final CodeController codeController,
       required final WidgetsToImageController widgetsToImageController,
-      required final int themeIndex}) = _$_CodeEditorModel;
+      required final int backgroundThemeIndex,
+      required final int codeEditorThemeIndex}) = _$_CodeEditorModel;
 
   @override
   double get currentWidth;
@@ -282,7 +303,9 @@ abstract class _CodeEditorModel implements CodeEditorModel {
   @override
   WidgetsToImageController get widgetsToImageController;
   @override
-  int get themeIndex;
+  int get backgroundThemeIndex;
+  @override
+  int get codeEditorThemeIndex;
   @override
   @JsonKey(ignore: true)
   _$$_CodeEditorModelCopyWith<_$_CodeEditorModel> get copyWith =>

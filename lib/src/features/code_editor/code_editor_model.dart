@@ -14,6 +14,7 @@ class CodeEditorModel with _$CodeEditorModel {
     required double defaultHeight,
     required CodeController codeController,
     required WidgetsToImageController widgetsToImageController,
-    required int themeIndex,
+    required int backgroundThemeIndex,
+    required int codeEditorThemeIndex,
   }) = _CodeEditorModel;
 }

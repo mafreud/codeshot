@@ -1,5 +1,6 @@
 import 'package:codeshot/src/features/code_editor/background_themes.dart';
 import 'package:codeshot/src/features/code_editor/code_editor_controller.dart';
+import 'package:codeshot/src/features/code_editor/editor_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,7 +22,12 @@ class CodeEditorPage extends ConsumerWidget {
         backgroundColor: darkGrey,
         actions: [
           IconButton(
-              onPressed: () => controller.nextTheme(backgroundThemes.length),
+              onPressed: () =>
+                  controller.nextBackgroundTheme(backgroundThemes.length),
+              icon: const Icon(Icons.change_circle_outlined)),
+          IconButton(
+              onPressed: () =>
+                  controller.nextCodeEditorTheme(editorThemes.length),
               icon: const Icon(Icons.change_circle)),
           IconButton(
             onPressed: controller.launchCodeShotGitHubRepository,
@@ -56,7 +62,7 @@ class CodeEditorPage extends ConsumerWidget {
                   width: state.currentWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    gradient: backgroundThemes[state.themeIndex],
+                    gradient: backgroundThemes[state.backgroundThemeIndex],
                   ),
                   child: Align(
                     alignment: Alignment.center,
@@ -65,7 +71,9 @@ class CodeEditorPage extends ConsumerWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: CodeTheme(
-                          data: CodeThemeData(),
+                          data: CodeThemeData(
+                            styles: editorThemes[state.codeEditorThemeIndex],
+                          ),
                           child: SingleChildScrollView(
                             child: CodeField(
                               padding: const EdgeInsets.all(30),

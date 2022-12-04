@@ -15,12 +15,12 @@ class CodeEditorController extends StateNotifier<CodeEditorModel> {
     required this.urlLauncherService,
   }) : super(
           CodeEditorModel(
-              currentWidth: 700,
-              defaultWidth: 700,
-              currentHeight: 450,
-              defaultHeight: 450,
-              codeController: CodeController(
-                text: """
+            currentWidth: 700,
+            defaultWidth: 700,
+            currentHeight: 450,
+            defaultHeight: 450,
+            codeController: CodeController(
+              text: """
 class AppBarSample extends StatelessWidget {
   const AppBarSample({Key? key}) : super(key: key);
 
@@ -34,10 +34,12 @@ class AppBarSample extends StatelessWidget {
   }
 }
 """,
-                language: dart,
-              ),
-              widgetsToImageController: WidgetsToImageController(),
-              themeIndex: 0),
+              language: dart,
+            ),
+            widgetsToImageController: WidgetsToImageController(),
+            backgroundThemeIndex: 0,
+            codeEditorThemeIndex: 0,
+          ),
         );
 
   final FileSaverService fileSaverService;
@@ -60,8 +62,11 @@ class AppBarSample extends StatelessWidget {
     return random.nextInt(integer);
   }
 
-  void nextTheme(int themeLength) =>
-      _updateThemeIndex(_generateRandomNumber(themeLength));
+  void nextBackgroundTheme(int themeLength) =>
+      _updateBackgroundThemeIndex(_generateRandomNumber(themeLength));
+
+  void nextCodeEditorTheme(int themeLength) =>
+      _updateCodeEditorThemeIndex(_generateRandomNumber(themeLength));
 
   void onHorizontalDragRight(double newValue) {
     updateWidth(state.currentWidth + newValue);
@@ -85,8 +90,12 @@ class AppBarSample extends StatelessWidget {
     state = state.copyWith(currentWidth: newWidth);
   }
 
-  void _updateThemeIndex(int newValue) {
-    state = state.copyWith(themeIndex: newValue);
+  void _updateBackgroundThemeIndex(int newValue) {
+    state = state.copyWith(backgroundThemeIndex: newValue);
+  }
+
+  void _updateCodeEditorThemeIndex(int newValue) {
+    state = state.copyWith(codeEditorThemeIndex: newValue);
   }
 }
 
