@@ -9,6 +9,8 @@ import 'package:widgets_to_image/widgets_to_image.dart';
 
 import '../../constants/colors.dart';
 
+enum Menu { itemOne, itemTwo, itemThree, itemFour }
+
 class CodeEditorPage extends ConsumerWidget {
   const CodeEditorPage({super.key});
 
@@ -21,6 +23,65 @@ class CodeEditorPage extends ConsumerWidget {
         title: const Text("Codeshot"),
         backgroundColor: darkGrey,
         actions: [
+          PopupMenuButton(
+            child: const Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Gradients'),
+              ),
+            ),
+            onSelected: (value) {
+              // print(value);
+              //
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+              PopupMenuItem(
+                value: Gradients.gradeGrey,
+                child: Text(Gradients.gradeGrey.name),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemTwo,
+                child: Text('Item 2'),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemThree,
+                child: Text('Item 3'),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemFour,
+                child: Text('Item 4'),
+              ),
+            ],
+          ),
+          PopupMenuButton(
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Center(
+                child: Text('EditorTheme'),
+              ),
+            ),
+            onSelected: (value) {
+              //
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
+              const PopupMenuItem<Menu>(
+                value: Menu.itemOne,
+                child: Text('Item 1'),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemTwo,
+                child: Text('Item 2'),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemThree,
+                child: Text('Item 3'),
+              ),
+              const PopupMenuItem<Menu>(
+                value: Menu.itemFour,
+                child: Text('Item 4'),
+              ),
+            ],
+          ),
           IconButton(
               onPressed: () =>
                   controller.nextBackgroundTheme(backgroundThemes.length),

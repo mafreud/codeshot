@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 
+class HexColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF$hexColor";
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
+
+enum Gradients { gradeGrey }
+
+final backgroundGradients = [
+  {
+    Gradients.gradeGrey: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        HexColor("#bdc3c7"),
+        HexColor("#2c3e50"),
+      ],
+    )
+  },
+];
+
 final backgroundThemes = [
   const LinearGradient(
     begin: Alignment.topLeft,
